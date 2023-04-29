@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,7 +37,8 @@ namespace Fish
             CenterToScreen();
 
             // Initialize Fishy-o-meter
-            FishyOMeterBar.Step = 50 / (_totalQuestions - 1);
+            FishyOMeterBar.Step = 1;
+            FishyOMeterBar.Maximum = _totalQuestions * 2;
 
             // Hide window until balloon is clicked
             ShowInTaskbar = false;
@@ -82,18 +83,19 @@ namespace Fish
             MessageBoxIcon resultIcon = MessageBoxIcon.Information;
             string resultTitle;
             string resultCaption;
-            if (FishyOMeterBar.Value < 30)
+            float fishPercentage = 100 * ((float)FishyOMeterBar.Value / FishyOMeterBar.Maximum);
+            if (fishPercentage < 30)
             {
                 resultTitle = "Unlikely";
                 resultCaption = "You are unlikely to be a fish. This is not confirmation that you are a human.";
             }
-            else if (FishyOMeterBar.Value < 60)
+            else if (fishPercentage < 60)
             {
                 resultTitle = "Uncertain";
                 resultCaption = "Quiz was unable to discern, please seek help from an ichthyologist for more detailed analysis.";
                 resultIcon = MessageBoxIcon.Question;
             }
-            else if (FishyOMeterBar.Value < 90)
+            else if (fishPercentage < 90)
             {
                 resultTitle = "Highly Likely";
                 resultCaption = "There is a high likelihood that you are a fish. If symptoms continue, contact your local Fish and Wildlife department.";
