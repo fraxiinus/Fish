@@ -74,6 +74,7 @@
             this.quizSecondaryText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
             this.quizSecondaryText.Location = new System.Drawing.Point(30, 155);
             this.quizSecondaryText.MinimumSize = new System.Drawing.Size(350, 0);
+            this.quizSecondaryText.MaximumSize = new System.Drawing.Size(350, 0);
             this.quizSecondaryText.Name = "quizSecondaryText";
             this.quizSecondaryText.Size = new System.Drawing.Size(350, 13);
             this.quizSecondaryText.TabIndex = 2;
